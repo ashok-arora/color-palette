@@ -7,25 +7,11 @@
         <meta name="keywords" content="UI,designer,color-palette">
         <meta name="author" content="Ashok Arora">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="slidecontainer">
-            <input type="range" min="1" max="16" value="6" step="1" class="slider" id="myRange">
-        </div>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-            var prev = curr = 6;
-            function createBox(prev, curr){
-                for (var i = prev; i < curr; i++){
-                $(".wrapper").append('<div class="box box'+i+'">'+i+'<input name="Color Picker" type="color"/></div>');
-                }
-            }
-            function removeBox(prev, curr){
-                for (var i = prev; i > curr; i--){
-                $(".wrapper").append('<div class="box box'+i+'">'+i+'<input name="Color Picker" type="color"/></div>');
-                }
-            }
-        </script>
+        <input type="range" min="6" max="16" value="6" step="1" class="slider" id="myRange" onchange="create()">
+        <p id="demo"></p>
         <div class="wrapper">
             <div class="box box1">1<input name="Color Picker" type="color"/></div>
             <div class="box box2">2<input name="Color Picker" type="color"/></div>
@@ -33,6 +19,33 @@
             <div class="box box4">4<input name="Color Picker" type="color"/></div>
             <div class="box box5">5<input name="Color Picker" type="color"/></div>
             <div class="box box6">6<input name="Color Picker" type="color"/></div>
-          </div>          
+        </div>  
+        <script> 
+            var prev = curr = 7;
+            function myFunction() {
+              var x = document.getElementById("myRange").value;
+              document.getElementById("demo").innerHTML = "You selected: " + x;
+            }
+            function create(){
+                var curr = document.getElementById("myRange").value;
+                if ( curr > prev ){
+                    createBox(prev, curr);
+                }
+                else if ( curr < prev ){
+                    removeBox(prev, curr);
+                }
+                prev = curr;
+            }
+            function createBox(prev, curr){
+                for (var i = prev; i < curr; i++){
+                $(".wrapper").append('<div class="box box'+i+'">'+i+'<input name="Color Picker" type="color"/></div>');
+                }
+            }
+            function removeBox(prev, curr){
+                for (var i = curr; i > prev; i--){
+                $(".wrapper").remove('<div class="box box'+i+'">'+i+'<input name="Color Picker" type="color"/></div>');
+                }
+            }
+        </script>
     </body>
 </html>
