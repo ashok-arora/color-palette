@@ -12,6 +12,20 @@
         <div class="slidecontainer">
             <input type="range" min="1" max="16" value="6" step="1" class="slider" id="myRange">
         </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+            var prev = curr = 6;
+            function createBox(prev, curr){
+                for (var i = prev; i < curr; i++){
+                $(".wrapper").append('<div class="box box'+i+'">'+i+'<input name="Color Picker" type="color"/></div>');
+                }
+            }
+            function removeBox(prev, curr){
+                for (var i = prev; i > curr; i--){
+                $(".wrapper").append('<div class="box box'+i+'">'+i+'<input name="Color Picker" type="color"/></div>');
+                }
+            }
+        </script>
         <div class="wrapper">
             <div class="box box1">1<input name="Color Picker" type="color"/></div>
             <div class="box box2">2<input name="Color Picker" type="color"/></div>
