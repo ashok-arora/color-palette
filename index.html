@@ -10,7 +10,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <input type="range" min="6" max="16" value="6" step="1" class="slider" id="myRange" onchange="create()">
+        <input type="range" min="6" max="16" value="6" step="1" class="slider" id="myRange" oninput="create()">
         <p id="demo"></p>
         <div class="wrapper">
             <div class="box box1">1<input name="Color Picker" type="color"/></div>
@@ -21,7 +21,7 @@
             <div class="box box6">6<input name="Color Picker" type="color"/></div>
         </div>  
         <script> 
-            var prev = curr = 7;
+            var prev = 7;
             function myFunction() {
               var x = document.getElementById("myRange").value;
               document.getElementById("demo").innerHTML = "You selected: " + x;
