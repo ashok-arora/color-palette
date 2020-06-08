@@ -43,7 +43,7 @@
             }
             function removeBox(prev, curr){
                 for (var i = curr; i > prev; i--){
-                $(".wrapper").remove('<div class="box box'+i+'">'+i+'<input name="Color Picker" type="color"/></div>');
+                $( "div" ).remove( ".box.box" + i );
                 }
             }
         </script>
