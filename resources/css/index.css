@@ -54,6 +54,6 @@ h1 {
 .wrapper {
     width: 600px;
     display: grid;
-    grid-template-columns: repeat(3, 100px);
+    grid-template-columns: repeat(8, 100px);
     grid-gap: 20px;
 }

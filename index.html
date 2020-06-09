@@ -10,27 +10,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <input type="range" min="6" max="16" value="6" step="1" class="slider" id="myRange" oninput="create()">
+        <input type="range" min="1" max="16" value="1" step="1" class="slider" id="myRange" oninput="create()">
         <h1 id="text"></h1>
         <div class="wrapper">
             <div class="box box1">1<input name="Color Picker" type="color"/></div>
-            <div class="box box2">2<input name="Color Picker" type="color"/></div>
-            <div class="box box3">3<input name="Color Picker" type="color"/></div>
-            <div class="box box4">4<input name="Color Picker" type="color"/></div>
-            <div class="box box5">5<input name="Color Picker" type="color"/></div>
-            <div class="box box6">6<input name="Color Picker" type="color"/></div>
         </div>  
         <script> 
-            var prev = 6;
+            var prev = 1;
+            var colors = ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", 
+                          "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"];
             function create(){
                 var curr = document.getElementById("myRange").value;
-                document.getElementById("text").innerHTML = "curr: " + curr + " prev: " + prev;
-                if ( curr > prev ){
-                    createBox(prev, curr);
-                }
-                else if ( curr < prev ){
-                    removeBox(prev, curr);
-                }
+                removeBox(0, prev);
+                createBox(1, curr);
                 prev = curr;
             }
             function createBox(prev, curr){
