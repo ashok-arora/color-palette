@@ -4,6 +4,9 @@ body {
     margin-top: 10%;
 }
 
+h1 {
+    color: #ebdbb2;
+}
 .slider {
     -webkit-appearance: none;
     width: 30%;
