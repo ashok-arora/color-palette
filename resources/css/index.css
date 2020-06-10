@@ -47,12 +47,14 @@ h1 {
     height: 200%;
     width: 100%;
 }
+
 /* 
 .box:nth-child(even) {
     background-color: #ccc;
     color: #000;
 }
-   */
+*/
+
 .wrapper {
     width: 600px;
     display: grid;
