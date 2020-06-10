@@ -33,7 +33,7 @@
                 for (var i = prev; i <= curr; i++){
                     $(".wrapper").append('<div class="box box'+i+'">'+'<input name="Color Picker" type="text" maxlength="6" oninput="color(this)"></div>');
                 }
-            }
+            } 
             function removeBox(prev, curr){
                 for (var i = curr; i >= prev; i--){
                     $( "div" ).remove( ".box.box" + i );
@@ -43,7 +43,7 @@
                 document.getElementById("text").innerHTML = "Colore" + currentElement.parentElement.className + currentElement.value;
                 var x = document.getElementsByClassName(currentElement.parentElement.className);
                 $(x).css("background-color", '#' + currentElement.value);
-                /* currentElement.parentElement.style.background = '#' + currentElement.value; */
+                colors[ currentElement.parentElement.className.match(/(\d+)/)[0] - 1 ] = '#'+currentElement.value;
             }
         </script>
     </body>
