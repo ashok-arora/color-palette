@@ -12,19 +12,17 @@
         
     </head>
     <body>
-        <input type="range" min="1" max="16" value="1" step="1" class="slider" id="myRange" oninput="create()">
+        <input type="range" min="0" max="16" value="0" step="1" class="slider" id="myRange" oninput="create()">
         <h1 id="text"></h1>
 
         <div class="wrapper">  
-            <div class="box box1">
-                <input name="Color Picker" type="text" maxlength="6" oninput="color(this)">
-            </div>
+
         </div>  
 
         <script> 
-            var prev = 1;
-            var colors = ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", 
-                          "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"];
+            var prev = 0;
+            var colors = ["#928374", "#928374", "#928374", "#928374", "#928374", "#928374", "#928374", "#928374", "#928374", 
+                          "#928374", "#928374", "#928374", "#928374", "#928374", "#928374", "#928374"];
             function create(){
                 var curr = document.getElementById("myRange").value;
                 removeBox(0, prev);
@@ -34,6 +32,9 @@
             function createBox(prev, curr){
                 for (var i = prev; i <= curr; i++){
                     $(".wrapper").append('<div class="box box'+i+'">'+'<input name="Color Picker" type="text" maxlength="6" oninput="color(this)"></div>');
+                    var x = document.getElementsByClassName("box box"+i);
+                    $(x).css("background-color", colors[i-1]);
+
                 }
             } 
             function removeBox(prev, curr){
@@ -42,7 +43,7 @@
                 }
             }
             function color(currentElement){
-                document.getElementById("text").innerHTML = "Colore" + currentElement.parentElement.className + currentElement.value;
+                /* document.getElementById("text").innerHTML = "Colore" + currentElement.parentElement.className + currentElement.value; */
                 var x = document.getElementsByClassName(currentElement.parentElement.className);
                 $(x).css("background-color", '#' + currentElement.value);
                 colors[ currentElement.parentElement.className.match(/(\d+)/)[0] - 1 ] = '#'+currentElement.value;
