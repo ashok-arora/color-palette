@@ -14,7 +14,7 @@
     <body>
 
         <label class="switch">
-            <input type="checkbox">
+            <input id="check" type="checkbox" value=true >
             <span class="sliderr round"></span>
         </label>
 
@@ -53,6 +53,16 @@
                 var x = document.getElementsByClassName(currentElement.parentElement.className);
                 $(x).css("background-color", '#' + currentElement.value);
                 colors[ currentElement.parentElement.className.match(/(\d+)/)[0] - 1 ] = '#'+currentElement.value;
+            }
+
+            function getStylesheet() {
+                var currentTime = new Date().getHours();
+                if (document.getElementById("check").checked == true) {
+                    $('body').append("<link rel='stylesheet' href='night.css' type='text/css'>");
+                }
+                else {
+                    $('body').append("<link rel='stylesheet' href='day.css' type='text/css'>");
+                }   
             }
         </script>
     </body>
